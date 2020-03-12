@@ -95,6 +95,10 @@ namespace ComputerDatabaseTest
 			// And I click Save this computer
 			// Then I can see the alert message
 			
+			string uniqueID2 = Guid.NewGuid().ToString();
+			DataContext.uniqueID2 = uniqueID2;
+			Console.WriteLine("Unique ID2 for Test Case 002: " + uniqueID2);
+			
 			pageIndex.GoToURL("http://computer-database.gatling.io/computers");
 			pageIndex.SendFieldSearch(uniqueID);
 			pageSearch = pageIndex.ClickFilterBtn();
@@ -102,7 +106,15 @@ namespace ComputerDatabaseTest
 			int row = pageSearch.FindRow(uniqueID);
 			Assert.AreNotEqual(-1, row);
 			
-			pageUpdate = pageSearch.ClickOnComputer(DataContext.UniqueID);
+			pageUpdate = pageSearch.ClickOnComputer(row);
+			pageUpdate.SendFieldComputerName(uniqueID2);
+			pageUpdate.SendFieldIntroducedDate("1999-10-19");
+			pageUpdate.SendFieldDiscontinuedDate("2002-09-09");
+			pageUpdate.SelectDropDownListCompany("Texas Instruments");
+			
+			pageIndex = pageUpdate.ClickSaveBtn();
+			string actualAlertMsg = pageIndex.GetAlertMsg();
+			Assert.AreEqual("Done! Computer " + uniqueID2 + " has been updated", actualAlertMsg);
         }
 		
 		[Test, Order(3)]
@@ -110,9 +122,23 @@ namespace ComputerDatabaseTest
         public void Test003()
         {
 			// Given I am on the computer database website
-			// And I click on a computer name
+			// And I search for the computer updated in TC02
+			// And I click on that computer name
 			// And I click delete computer button
 			// Then I can see the alert message
+			
+			pageIndex.GoToURL("http://computer-database.gatling.io/computers");
+			pageIndex.SendFieldSearch(DataContext.uniqueID2);
+			pageSearch = pageIndex.ClickFilterBtn();
+			
+			int row = pageSearch.FindRow(DataContext.uniqueID2);
+			Assert.AreNotEqual(-1, row);
+			
+			pageUpdate = pageSearch.ClickOnComputer(row);
+			
+			pageIndex = pageUpdate.ClickDeleteBtn();
+			string actualAlertMsg = pageIndex.GetAlertMsg();
+			Assert.AreEqual("Done! Computer has been deleted", actualAlertMsg);
         }
 		
 		//@TODO: Computers with duplicate names

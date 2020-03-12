@@ -28,6 +28,7 @@ namespace Pages
 			_driver = driver;
 		}
 		
+		// Returns the row number where that computer is (since we are using unique ID's to identify it, there should only be 1 entry)
 		public int FindRow(string computerName){
 			var table = _driver.FindElement(Table);
 			var rows = table.FindElements(_Rows);
@@ -69,9 +70,12 @@ namespace Pages
 			return GetTDText(row, 4);
 		}
 		
-		public Update ClickOnComputer(string name){
+		public Update ClickOnComputer(int row){
+			string selectorPath = "#main > table > tbody > tr:nth-child(" + row + ") > td:nth-child(1) > a";
+			By td = By.CssSelector(selectorPath);
+			_driver.FindElement(td).Click();
 			
-			"#main > table > tbody > tr:nth-child(1) > td:nth-child(1) > a"
+			return new Update(_driver);
 		}
 	}	
 }

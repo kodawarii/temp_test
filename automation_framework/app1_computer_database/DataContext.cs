@@ -12,6 +12,6 @@ namespace ComputerDatabaseTest{
 	
 	public class DataContext{
 		public static string uniqueID{get;set;}
-		
+		public static string uniqueID2{get;set;}
 	}
 }

@@ -33,13 +33,11 @@ namespace Pages
 		
 		public Add ClickAddBtn(){
 			_driver.FindElement(AddBtn).Click();
-			
 			return new Add(_driver);
 		}
 		
 		public Search ClickFilterBtn(){
 			_driver.FindElement(SearchBtn).Click();
-			
 			return new Search(_driver);
 		}
 		

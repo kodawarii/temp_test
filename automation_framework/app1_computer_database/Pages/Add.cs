@@ -28,7 +28,7 @@ namespace Pages
 			_driver = driver;
 		}
 		
-		// Click Operations
+		//@TODO: See Update Class for duplicate code
 		public void SendFieldComputerName(string s){
 			_driver.FindElement(FieldComputerName).SendKeys(s);
 		}
@@ -47,13 +47,11 @@ namespace Pages
 		
 		public Index ClickCreateBtn(){
 			_driver.FindElement(CreateBtn).Click();
-			
 			return new Index(_driver);
 		}
 		
 		public Index ClickCancelBtn(){
 			_driver.FindElement(CancelBtn).Click();
-			
 			return new Index(_driver);
 		}
 	}	
