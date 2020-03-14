@@ -1,0 +1,21 @@
+Current Date: 2020-03-14
+
+- Uses Visual Studio 2019
+- Create new Project for C# Console App
+- Use .NET Core 3.1
+
+Extensions to use:
+- NUnit 3 Test Adapter (3.16.1)
+- SpecFlow for Visual Studio 2019 (2019.0.46.15077)
+
+Packages:
+- NUnit (3.12.0)
+- NUnit3TestAdapter (3.16.1)
+- Microsoft.NET.Test.Sdk (16.5.0)
+- SpecFlow (3.1.86)
+- SpecFlow.NUnit (3.1.86)
+- SpecFlow.Tools.MsBuild.Generation (3.1.86)
+
+- Selenium.Support (3.141.0)
+- Selenium.WebDriver (3.141.0)
+- Selenium.Chrome.WebDriver (79.0.0)
