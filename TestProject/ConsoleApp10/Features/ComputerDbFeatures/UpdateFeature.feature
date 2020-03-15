@@ -4,7 +4,7 @@
 	I want to create and search for a computer
 
 Scenario Outline: SC002 Update Computer Successfully
-	Given I am on http://computer-database.gatling.io/computers
+	Given I am on http://computer-database.gatling.io/computers ComputerDbApp
 	And I create an arbitary computer
 	And I search for the computer
 	When I click on the computer

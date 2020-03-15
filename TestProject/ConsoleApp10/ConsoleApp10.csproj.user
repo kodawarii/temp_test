@@ -11,6 +11,9 @@
     <Compile Update="Steps\DeleteFeatureSteps.cs">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Update="Steps\JavascriptAlertAppSteps.cs">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Update="Steps\UpdateFeatureSteps.cs">
       <SubType>Code</SubType>
     </Compile>

@@ -29,11 +29,24 @@ namespace ConsoleApp10.Steps
             functions = new Functions();
         }
 
-        [Given(@"I am on (.*)")]
-        public void GivenIAmOn(string _URL)
+        [Given(@"I am on (.*) (.*)")]
+        public void GivenIAmOn(string _URL, string app)
         {
-            runner.pageIndex = new PageIndex(runner._driver);
-            runner.pageIndex.GoToURL(_URL);
+            // @TODO: Make into switch
+            if (app.Equals("ComputerDbApp"))
+            {
+                runner.pageIndex = new PageIndex(runner._driver);
+                runner.pageIndex.GoToURL(_URL);
+            }
+            else if (app.Equals("JsAlertApp"))
+            {
+                runner.pageJavascriptAlert = new PageIndexJavascriptAlert(runner._driver);
+                runner.pageJavascriptAlert.GoToURL(_URL);
+            }
+            else
+            {
+                throw new Exception("> That app doesn't exist in this test: " + app);
+            }
         }
 
         [Given(@"I create an arbitary computer")]

@@ -11,12 +11,15 @@ namespace ConsoleApp10.Helpers
         // Drivers
         public IWebDriver _driver;
 
-        // Pages
+        // Pages for ComputerDatabase
         public PageAdd pageAdd;
         public PageDelete pageDelete;
         public PageIndex pageIndex;
         public PageSearch pageSearch;
         public PageUpdate pageUpdate;
+
+        // Pages for Javscript Alert App
+        public PageIndexJavascriptAlert pageJavascriptAlert;
 
         public GlobalRunner()
         {

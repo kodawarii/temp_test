@@ -102,7 +102,7 @@ this.ScenarioInitialize(scenarioInfo);
             {
                 this.ScenarioStart();
 #line 7
- testRunner.Given("I am on http://computer-database.gatling.io/computers", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
+ testRunner.Given("I am on http://computer-database.gatling.io/computers ComputerDbApp", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line hidden
 #line 8
  testRunner.When("I click on the add new computer button", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");

@@ -4,7 +4,7 @@
 	I want to create a computer
 
 Scenario Outline: SC001 Create Successful Computer
-	Given I am on http://computer-database.gatling.io/computers
+	Given I am on http://computer-database.gatling.io/computers ComputerDbApp
 	When I click on the add new computer button
 	And I enter the following details
 	| Field             | Name               |
